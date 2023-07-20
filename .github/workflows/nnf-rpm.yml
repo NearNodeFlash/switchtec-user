@@ -30,11 +30,6 @@ jobs:
         #
         # So let's cherry-pick:
         run: dnf install -y rpm-build rpmdevtools rpmlint make gcc git ncurses-devel openssl-devel
-      - name: personalize rpmlint
-        # suppress one error: we want to use /usr/local.
-        run: |
-          mkdir ~/.config
-          echo 'addFilter("dir-or-file-in-usr-local")' > ~/.config/rpmlint
 
       - name: checkout
         uses: actions/checkout@v3
